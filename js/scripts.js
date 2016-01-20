@@ -1,21 +1,36 @@
-$(function() {
-  $("#sides").submit(function(event) {
-    var side1 = parseInt($("#side1").val());
-    var side2 = parseInt($("#side2").val());
-    var side3 = parseInt($("#side3").val());
+/*var cryptosquare = function() {
+  $("#form").submit(function(event) {
+    var textString = $("#textString").val();
+    var newString = (textString).replace(/[^\w\s]|_/g, "").replace(/\s/g, "").toLowerCase();
+  })
+};*/
 
-    if ((side1 + side2 <= side3) || (side2 + side3 <= side1) || (side1 + side3 <= side2)) {
-      $("#result").text("Not a triangle.");
-    } else if ((side1 === side2) && (side2 === side3)) {
-      $("#result").text("This forms an equilateral triangle.");
-    } else if ((side1 === side2) || (side2 === side3) || (side1 === side3)) {
-      $("#result").text("This forms an isosceles triangle.");
-    } else if ((side1 !== side2) && (side2 !== side3) && (side1 !== side3)) {
-      $("#result").text("This forms a scalene triangle.");
-    }
-    else{
-      alert("Please enter an integer for all three sides");
-    }
+
+$(function() {
+  $("#form").submit(function(event) {
+    var textString = $("#textString").val();
+    var newString = (textString).replace(/[^\w\s]|_/g, "").replace(/\s/g, "").toLowerCase();
+
+    var stringCount = newString.length;
+    var columns = 0;
+
+    for (i = 0; i < stringCount.length; i++) {
+      if ((i * i)=== stringCount.length){
+        var columns = i;
+       }
+       else {
+         var columns = Math.sqrt(stringCount.length).toFixed(0) + 1;
+       }
+     }
+
+     for (i = 0; i < columns; i++) {
+       for (i = 0; i <= stringCount.length; i+= columns) {
+         var encodedString = encodedString + str.charAt(i);
+       }
+     }
+     var encodedString = str.match(/.{1,5}/g);
+
+    $("#result").text(encodedString);
 
     event.preventDefault();
   });

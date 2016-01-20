@@ -1,11 +1,6 @@
-
-var cryptosquare = function(side1, side2, side3) {
-  return true;
-};
-
-describe('triangleTracker', function() {
-  it("is false when any 2 sides are less than or equal to the third", function() {
-    expect(triangleTracker(2,3,6)).to.equal(true);
+describe('cryptosquare', function(textString) {
+  it("is false if string contains spaces and punctuation", function() {
+    expect('cryptosquare'(newString).to.equal(true));
   });
 
 
@@ -14,10 +9,8 @@ describe('triangleTracker', function() {
 
 
 
-
-
 /*Possible Behaviors
--1)set input to a string > input to string
+
 0) replace spaces and punctuation > .replace(/[^\w\s]|_/g, "")
                                     .replace(/\s/g, "");
 1) convert all characters to lowercase > .tolowercase
@@ -34,10 +27,12 @@ describe('triangleTracker', function() {
   }
 
 4) concatinate index 0 + column length index number >
-for (i = 0; i = columns; i++) {
+for (i = 0; i < columns; i++) {
   for (i = 0; i <= variable.length; i+= columns) {
     var encodedString += str.charAt(i);
   }
 }
 
 5) split result of concatination into groups of 5
+return str.match(/.{1,5}/g); //first number is smallest chunk to return, second number is regular chunk size
+*/
